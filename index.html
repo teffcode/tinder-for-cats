@@ -14,7 +14,7 @@
     .buttons-container {
       display: flex;
       justify-content: center;
-      gap: 8px;
+      gap: 12px;
       width: 180px;
     }
 
@@ -22,8 +22,31 @@
       border: none;
       border-radius: 100%;
       cursor: pointer;
+      margin-top: 8px;
       width: 32px;
       height: 32px;
+      transition: all 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.2);
+      transition: all 0.2s;
+    }
+
+    button:nth-child(1):hover {
+      animation: green 1s forwards;
+    }
+
+    button:nth-child(2):hover {
+      animation: red 1s forwards;
+    }
+
+    @keyframes green {
+      100% { background: #CCF3EE; }
+    }
+
+    @keyframes red {
+      100% { background: #FFDEDE; }
     }
   </style>
 </head>
