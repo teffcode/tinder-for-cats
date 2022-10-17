@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Ghibli</title>
+  <style>
+    #cat {
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+    .buttons-container {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      width: 180px;
+    }
+
+    button {
+      border: none;
+      border-radius: 100%;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+    }
+  </style>
+</head>
+<body>
+  <img id="cat" alt="cat" width=180 height=140>
+  <div class="buttons-container">  
+    <button id="like-button">👍🏼</button>
+    <button id="dislike-button">👎🏼</button>
+  </div>
+</body>
+<script>
+  const catElement = document.getElementById('cat')
+  const likeButton = document.getElementById('like-button')
+  const dislikeButton = document.getElementById('dislike-button')
+
+  const BASE_API = 'https://api.thecatapi.com/v1/images/search'
+
+  async function getCats() {
+    const response = await fetch(BASE_API)
+    const cats = await response.json()
+    return cats
+  }
+
+  function printCat() {
+    getCats().then(cats => cats.map(cat => catElement.src = cat.url))
+  }
+
+  likeButton.addEventListener('click', () => printCat())
+  dislikeButton.addEventListener('click', () => printCat())
+
+  printCat()
+</script>
+</html>
