@@ -1,0 +1,134 @@
+:root {
+  --whitebase: #fff1ff;
+  --black: #424242;
+  --redtinder: #f33c72;
+}
+
+body {
+  background-color: var(--whitebase);
+  background-image: url("./images/bg-pattern-top.svg"),
+    url("./images/bg-pattern-bottom.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: right 50vw bottom 50vh, left 50vw top 50vh;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.card {
+  width: 326px;
+  min-height: 270px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--black) url("./images/cat-pattern.jpg") no-repeat;
+  background-size: 100%;
+  padding-top: 80px;
+  box-shadow: 5px 5px 10px #0000005c;
+}
+
+.card img {
+  background: var(--whitebase);
+  border-radius: 50%;
+  overflow: hidden;
+  margin: auto;
+  border: 7px solid #eca8bc;
+  width: 170px;
+  height: 170px;
+  margin-top: -30px;
+}
+
+#cat {
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+button {
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+  margin-top: 8px;
+  width: 32px;
+  height: 32px;
+  transition: all 0.2s;
+}
+
+button:hover {
+  transform: scale(1.2);
+  transition: all 0.2s;
+}
+
+button:nth-child(1):hover {
+  animation: green 1s forwards;
+}
+
+button:nth-child(2):hover {
+  animation: red 1s forwards;
+}
+
+@keyframes green {
+  100% {
+    background: #ccf3ee;
+  }
+}
+
+@keyframes red {
+  100% {
+    background: #ffdede;
+  }
+}
+
+/* spiner */
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  margin: 35px 0;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid var(--redtinder);
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: var(--redtinder) transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

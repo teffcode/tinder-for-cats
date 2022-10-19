@@ -1,82 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🐈 Tinder for cats</title>
-  <style>
-    #cat {
-      object-fit: cover;
-      border-radius: 16px;
-    }
-
-    .buttons-container {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      width: 180px;
-    }
-
-    button {
-      border: none;
-      border-radius: 100%;
-      cursor: pointer;
-      margin-top: 8px;
-      width: 32px;
-      height: 32px;
-      transition: all 0.2s;
-    }
-
-    button:hover {
-      transform: scale(1.2);
-      transition: all 0.2s;
-    }
-
-    button:nth-child(1):hover {
-      animation: green 1s forwards;
-    }
-
-    button:nth-child(2):hover {
-      animation: red 1s forwards;
-    }
-
-    @keyframes green {
-      100% { background: #CCF3EE; }
-    }
-
-    @keyframes red {
-      100% { background: #FFDEDE; }
-    }
-  </style>
-</head>
-<body>
-  <img id="cat" alt="cat" width=180 height=140>
-  <div class="buttons-container">  
-    <button id="like-button">👍🏼</button>
-    <button id="dislike-button">👎🏼</button>
-  </div>
-</body>
-<script>
-  const catElement = document.getElementById('cat')
-  const likeButton = document.getElementById('like-button')
-  const dislikeButton = document.getElementById('dislike-button')
-
-  const BASE_API = 'https://api.thecatapi.com/v1/images/search'
-
-  async function getCats() {
-    const response = await fetch(BASE_API)
-    const cats = await response.json()
-    return cats
-  }
-
-  function printCat() {
-    getCats().then(cats => cats.map(cat => catElement.src = cat.url))
-  }
-
-  likeButton.addEventListener('click', () => printCat())
-  dislikeButton.addEventListener('click', () => printCat())
-
-  printCat()
-</script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>🐈 Tinder for cats</title>
+  </head>
+  <body class="center-content">
+    <div class="card" id="content">
+      <img id="cat" alt="cat" width="180" height="140" />
+      <h2 id="origin"></h2>
+      <div class="buttons-container">
+        <button id="like-button">👍🏼</button>
+        <button id="dislike-button">👎🏼</button>
+      </div>
+    </div>
+  </body>
+  <script src="./main.js"></script>
 </html>
