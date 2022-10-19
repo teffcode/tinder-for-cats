@@ -5,6 +5,7 @@
 }
 
 body {
+  font-family:  Helvetica, sans-serif;
   background-color: var(--whitebase);
   background-image: url("./images/bg-pattern-top.svg"),
     url("./images/bg-pattern-bottom.svg");
@@ -14,10 +15,12 @@ body {
 
 .center-content {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   text-align: center;
+  color: var(--redtinder);
 }
 
 .card {

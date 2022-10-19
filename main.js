@@ -26,5 +26,3 @@ function printCat() {
 
 likeButton.addEventListener("click", () => printCat());
 dislikeButton.addEventListener("click", () => printCat());
-
-printCat();
